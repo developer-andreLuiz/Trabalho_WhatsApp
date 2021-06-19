@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_WhatsApp.View;
 
 namespace Trabalho_WhatsApp
 {
@@ -16,7 +17,9 @@ namespace Trabalho_WhatsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+
+            Application.Run(new FrmManager());
         }
     }
 }
