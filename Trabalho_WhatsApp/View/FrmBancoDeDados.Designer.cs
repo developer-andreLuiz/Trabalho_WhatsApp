@@ -32,12 +32,12 @@ namespace Trabalho_WhatsApp.View
             this.panelCentral = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.btnEstadoMunicipioBairro = new System.Windows.Forms.Button();
             this.btnContatoEmail = new System.Windows.Forms.Button();
             this.btnContato = new System.Windows.Forms.Button();
             this.btnAparelho = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelCentral.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,9 +45,9 @@ namespace Trabalho_WhatsApp.View
             // panelCentral
             // 
             this.panelCentral.BackColor = System.Drawing.Color.White;
+            this.panelCentral.Controls.Add(this.button1);
             this.panelCentral.Controls.Add(this.button3);
             this.panelCentral.Controls.Add(this.button4);
-            this.panelCentral.Controls.Add(this.btnEstadoMunicipioBairro);
             this.panelCentral.Controls.Add(this.btnContatoEmail);
             this.panelCentral.Controls.Add(this.btnContato);
             this.panelCentral.Controls.Add(this.btnAparelho);
@@ -89,23 +89,6 @@ namespace Trabalho_WhatsApp.View
             this.button4.TabIndex = 8;
             this.button4.Text = "XXXXX";
             this.button4.UseVisualStyleBackColor = false;
-            // 
-            // btnEstadoMunicipioBairro
-            // 
-            this.btnEstadoMunicipioBairro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.btnEstadoMunicipioBairro.FlatAppearance.BorderSize = 0;
-            this.btnEstadoMunicipioBairro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
-            this.btnEstadoMunicipioBairro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(69)))), ((int)(((byte)(98)))));
-            this.btnEstadoMunicipioBairro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadoMunicipioBairro.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstadoMunicipioBairro.ForeColor = System.Drawing.Color.White;
-            this.btnEstadoMunicipioBairro.Location = new System.Drawing.Point(64, 231);
-            this.btnEstadoMunicipioBairro.Name = "btnEstadoMunicipioBairro";
-            this.btnEstadoMunicipioBairro.Size = new System.Drawing.Size(165, 47);
-            this.btnEstadoMunicipioBairro.TabIndex = 7;
-            this.btnEstadoMunicipioBairro.Text = "Estado Municipio Bairro";
-            this.btnEstadoMunicipioBairro.UseVisualStyleBackColor = false;
-            this.btnEstadoMunicipioBairro.Click += new System.EventHandler(this.btnEstadoMunicipioBairro_Click);
             // 
             // btnContatoEmail
             // 
@@ -178,6 +161,22 @@ namespace Trabalho_WhatsApp.View
             this.label1.TabIndex = 0;
             this.label1.Text = "Banco de Dados";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(69)))), ((int)(((byte)(98)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(64, 231);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 47);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "XXXXX";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // FrmBancoDeDados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -208,6 +207,6 @@ namespace Trabalho_WhatsApp.View
         private System.Windows.Forms.Button btnContato;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btnEstadoMunicipioBairro;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -51,10 +51,7 @@ namespace Trabalho_WhatsApp.View
         {
             openChildForm(new FrmContatoEmail());
         }
-        private void btnEstadoMunicipioBairro_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FrmEstadoMunicipioBairro());
-        }
+       
         #endregion
 
 

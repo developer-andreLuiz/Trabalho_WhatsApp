@@ -114,7 +114,7 @@ namespace Trabalho_WhatsApp.View
                 btnInicio.BackColor = Color.FromArgb(r0, g0, b0);
                 btnEnvio.BackColor = Color.FromArgb(r0, g0, b0);
                 btnResposta.BackColor = Color.FromArgb(r0, g0, b0);
-                btnBancoDeDados.BackColor = Color.FromArgb(r0, g0, b0);
+                btnBancoDeDados.BackColor = Color.FromArgb(r1, g1, b1);
                 btnExportarContatos.BackColor = Color.FromArgb(r0, g0, b0);
                 btnAjuda.BackColor = Color.FromArgb(r0, g0, b0);
             }
@@ -129,7 +129,7 @@ namespace Trabalho_WhatsApp.View
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtTelefone.Text.Length==11)
+            if (txtTelefone.Text.Trim().Length==11)
             {
                 InterfaceBtn(sender);
                 string telefone = txtTelefone.Text;
@@ -138,6 +138,7 @@ namespace Trabalho_WhatsApp.View
             }
             else
             {
+                MessageBox.Show("Número digitado Incorreto!", "Formato Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTelefone.Focus();
             }
             

@@ -29,8 +29,8 @@ namespace Trabalho_WhatsApp.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -65,7 +65,9 @@ namespace Trabalho_WhatsApp.View
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnGrid = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
+            this.txtVersao = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -98,6 +100,8 @@ namespace Trabalho_WhatsApp.View
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtVersao);
+            this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.chkHabilitado);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.cbUdid);
@@ -113,15 +117,15 @@ namespace Trabalho_WhatsApp.View
             this.panel2.Location = new System.Drawing.Point(12, 74);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(713, 140);
-            this.panel2.TabIndex = 14;
+            this.panel2.TabIndex = 0;
             // 
             // chkHabilitado
             // 
             this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(621, 46);
+            this.chkHabilitado.Location = new System.Drawing.Point(640, 42);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(15, 14);
-            this.chkHabilitado.TabIndex = 15;
+            this.chkHabilitado.TabIndex = 3;
             this.chkHabilitado.UseVisualStyleBackColor = true;
             // 
             // label7
@@ -129,7 +133,7 @@ namespace Trabalho_WhatsApp.View
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.label7.Location = new System.Drawing.Point(588, 14);
+            this.label7.Location = new System.Drawing.Point(600, 10);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 22);
             this.label7.TabIndex = 21;
@@ -142,10 +146,10 @@ namespace Trabalho_WhatsApp.View
             this.cbUdid.Font = new System.Drawing.Font("Times New Roman", 14.25F);
             this.cbUdid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
             this.cbUdid.FormattingEnabled = true;
-            this.cbUdid.Location = new System.Drawing.Point(355, 96);
+            this.cbUdid.Location = new System.Drawing.Point(308, 96);
             this.cbUdid.Name = "cbUdid";
-            this.cbUdid.Size = new System.Drawing.Size(345, 29);
-            this.cbUdid.TabIndex = 15;
+            this.cbUdid.Size = new System.Drawing.Size(258, 29);
+            this.cbUdid.TabIndex = 5;
             this.cbUdid.Click += new System.EventHandler(this.cbUdid_Click);
             // 
             // label6
@@ -153,7 +157,7 @@ namespace Trabalho_WhatsApp.View
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.label6.Location = new System.Drawing.Point(351, 71);
+            this.label6.Location = new System.Drawing.Point(304, 71);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 22);
             this.label6.TabIndex = 20;
@@ -165,10 +169,9 @@ namespace Trabalho_WhatsApp.View
             this.txtEmail.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
             this.txtEmail.Location = new System.Drawing.Point(13, 96);
-            this.txtEmail.MaxLength = 11;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(310, 29);
-            this.txtEmail.TabIndex = 19;
+            this.txtEmail.Size = new System.Drawing.Size(276, 29);
+            this.txtEmail.TabIndex = 4;
             // 
             // label3
             // 
@@ -188,29 +191,29 @@ namespace Trabalho_WhatsApp.View
             this.txtId.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
             this.txtId.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtId.Location = new System.Drawing.Point(13, 39);
+            this.txtId.Location = new System.Drawing.Point(13, 35);
             this.txtId.MaxLength = 11;
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 29);
-            this.txtId.TabIndex = 17;
+            this.txtId.TabIndex = 0;
             // 
             // txtBusiness
             // 
             this.txtBusiness.BackColor = System.Drawing.Color.White;
             this.txtBusiness.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusiness.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.txtBusiness.Location = new System.Drawing.Point(355, 39);
+            this.txtBusiness.Location = new System.Drawing.Point(380, 35);
             this.txtBusiness.MaxLength = 11;
             this.txtBusiness.Name = "txtBusiness";
-            this.txtBusiness.Size = new System.Drawing.Size(192, 29);
-            this.txtBusiness.TabIndex = 16;
+            this.txtBusiness.Size = new System.Drawing.Size(207, 29);
+            this.txtBusiness.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.label5.Location = new System.Drawing.Point(351, 14);
+            this.label5.Location = new System.Drawing.Point(376, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(81, 22);
             this.label5.TabIndex = 15;
@@ -221,18 +224,18 @@ namespace Trabalho_WhatsApp.View
             this.txtWhatsApp.BackColor = System.Drawing.Color.White;
             this.txtWhatsApp.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWhatsApp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.txtWhatsApp.Location = new System.Drawing.Point(140, 39);
+            this.txtWhatsApp.Location = new System.Drawing.Point(145, 35);
             this.txtWhatsApp.MaxLength = 11;
             this.txtWhatsApp.Name = "txtWhatsApp";
-            this.txtWhatsApp.Size = new System.Drawing.Size(192, 29);
-            this.txtWhatsApp.TabIndex = 14;
+            this.txtWhatsApp.Size = new System.Drawing.Size(207, 29);
+            this.txtWhatsApp.TabIndex = 1;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.label4.Location = new System.Drawing.Point(136, 14);
+            this.label4.Location = new System.Drawing.Point(141, 10);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 22);
             this.label4.TabIndex = 3;
@@ -243,7 +246,7 @@ namespace Trabalho_WhatsApp.View
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.label2.Location = new System.Drawing.Point(9, 14);
+            this.label2.Location = new System.Drawing.Point(9, 10);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 22);
             this.label2.TabIndex = 1;
@@ -272,7 +275,7 @@ namespace Trabalho_WhatsApp.View
             this.btnNovo.Location = new System.Drawing.Point(12, 536);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(130, 47);
-            this.btnNovo.TabIndex = 18;
+            this.btnNovo.TabIndex = 2;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
@@ -289,7 +292,7 @@ namespace Trabalho_WhatsApp.View
             this.btnAtualizar.Location = new System.Drawing.Point(156, 536);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(130, 47);
-            this.btnAtualizar.TabIndex = 19;
+            this.btnAtualizar.TabIndex = 3;
             this.btnAtualizar.Text = "Atualizar";
             this.btnAtualizar.UseVisualStyleBackColor = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
@@ -303,10 +306,10 @@ namespace Trabalho_WhatsApp.View
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(301, 536);
+            this.btnCancelar.Location = new System.Drawing.Point(449, 536);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(130, 47);
-            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -320,10 +323,10 @@ namespace Trabalho_WhatsApp.View
             this.btnGravar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGravar.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGravar.ForeColor = System.Drawing.Color.White;
-            this.btnGravar.Location = new System.Drawing.Point(449, 536);
+            this.btnGravar.Location = new System.Drawing.Point(302, 536);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(130, 47);
-            this.btnGravar.TabIndex = 21;
+            this.btnGravar.TabIndex = 4;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
@@ -331,6 +334,7 @@ namespace Trabalho_WhatsApp.View
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
+            this.panel3.Controls.Add(this.label18);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label12);
@@ -347,7 +351,7 @@ namespace Trabalho_WhatsApp.View
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(289, 4);
+            this.label14.Location = new System.Drawing.Point(399, 4);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(35, 15);
             this.label14.TabIndex = 51;
@@ -369,7 +373,7 @@ namespace Trabalho_WhatsApp.View
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(517, 4);
+            this.label12.Location = new System.Drawing.Point(564, 4);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(33, 15);
             this.label12.TabIndex = 49;
@@ -380,7 +384,7 @@ namespace Trabalho_WhatsApp.View
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(177, 4);
+            this.label11.Location = new System.Drawing.Point(217, 4);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 15);
             this.label11.TabIndex = 48;
@@ -391,7 +395,7 @@ namespace Trabalho_WhatsApp.View
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(63, 4);
+            this.label10.Location = new System.Drawing.Point(108, 4);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 15);
             this.label10.TabIndex = 47;
@@ -402,7 +406,7 @@ namespace Trabalho_WhatsApp.View
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(11, 4);
+            this.label15.Location = new System.Drawing.Point(8, 4);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(18, 15);
             this.label15.TabIndex = 45;
@@ -461,7 +465,7 @@ namespace Trabalho_WhatsApp.View
             this.btnDeletar.Location = new System.Drawing.Point(595, 536);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(130, 47);
-            this.btnDeletar.TabIndex = 56;
+            this.btnDeletar.TabIndex = 6;
             this.btnDeletar.Text = "Deletar";
             this.btnDeletar.UseVisualStyleBackColor = false;
             this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
@@ -482,6 +486,7 @@ namespace Trabalho_WhatsApp.View
             this.btnGrid.Text = "֍";
             this.btnGrid.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnGrid.UseVisualStyleBackColor = false;
+            this.btnGrid.Click += new System.EventHandler(this.btnGrid_Click);
             // 
             // dataGridView
             // 
@@ -489,24 +494,24 @@ namespace Trabalho_WhatsApp.View
             this.dataGridView.AllowUserToResizeRows = false;
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridView.ColumnHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(25)))), ((int)(((byte)(51)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
             this.dataGridView.Location = new System.Drawing.Point(13, 250);
@@ -517,19 +522,40 @@ namespace Trabalho_WhatsApp.View
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(712, 244);
-            this.dataGridView.TabIndex = 58;
+            this.dataGridView.TabIndex = 1;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
-            // label9
+            // txtVersao
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(186, 25);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(414, 31);
-            this.label9.TabIndex = 59;
-            this.label9.Text = "Falta colocar a versão do Android";
+            this.txtVersao.BackColor = System.Drawing.Color.White;
+            this.txtVersao.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVersao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
+            this.txtVersao.Location = new System.Drawing.Point(582, 96);
+            this.txtVersao.Name = "txtVersao";
+            this.txtVersao.Size = new System.Drawing.Size(113, 29);
+            this.txtVersao.TabIndex = 6;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
+            this.label17.Location = new System.Drawing.Point(578, 71);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(66, 22);
+            this.label17.TabIndex = 22;
+            this.label17.Text = "Versão";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(41, 4);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(43, 15);
+            this.label18.TabIndex = 52;
+            this.label18.Text = "Versão";
             // 
             // FrmAparelho
             // 
@@ -537,7 +563,6 @@ namespace Trabalho_WhatsApp.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(737, 595);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.btnGrid);
             this.Controls.Add(this.btnDeletar);
@@ -568,7 +593,6 @@ namespace Trabalho_WhatsApp.View
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -607,6 +631,8 @@ namespace Trabalho_WhatsApp.View
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnGrid;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtVersao;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
     }
 }
