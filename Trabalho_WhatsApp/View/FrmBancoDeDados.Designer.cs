@@ -30,14 +30,11 @@ namespace Trabalho_WhatsApp.View
         private void InitializeComponent()
         {
             this.panelCentral = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnContatoEmail = new System.Windows.Forms.Button();
             this.btnContato = new System.Windows.Forms.Button();
             this.btnAparelho = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panelCentral.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,9 +42,6 @@ namespace Trabalho_WhatsApp.View
             // panelCentral
             // 
             this.panelCentral.BackColor = System.Drawing.Color.White;
-            this.panelCentral.Controls.Add(this.button1);
-            this.panelCentral.Controls.Add(this.button3);
-            this.panelCentral.Controls.Add(this.button4);
             this.panelCentral.Controls.Add(this.btnContatoEmail);
             this.panelCentral.Controls.Add(this.btnContato);
             this.panelCentral.Controls.Add(this.btnAparelho);
@@ -57,38 +51,6 @@ namespace Trabalho_WhatsApp.View
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(737, 595);
             this.panelCentral.TabIndex = 2;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(69)))), ((int)(((byte)(98)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(496, 231);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(165, 47);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "XXXXX";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(69)))), ((int)(((byte)(98)))));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(279, 231);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(165, 47);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "XXXXX";
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // btnContatoEmail
             // 
@@ -161,22 +123,6 @@ namespace Trabalho_WhatsApp.View
             this.label1.TabIndex = 0;
             this.label1.Text = "Banco de Dados";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(32)))), ((int)(((byte)(44)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(123)))), ((int)(((byte)(179)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(69)))), ((int)(((byte)(98)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(64, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 47);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "XXXXX";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // FrmBancoDeDados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -205,8 +151,5 @@ namespace Trabalho_WhatsApp.View
         private System.Windows.Forms.Button btnAparelho;
         private System.Windows.Forms.Button btnContatoEmail;
         private System.Windows.Forms.Button btnContato;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
     }
 }

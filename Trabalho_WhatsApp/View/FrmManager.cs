@@ -138,8 +138,20 @@ namespace Trabalho_WhatsApp.View
             }
             else
             {
-                MessageBox.Show("Número digitado Incorreto!", "Formato Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtTelefone.Focus();
+                if (txtTelefone.Text.Trim().Length == 0)
+                {
+                    DialogResult dialog = MessageBox.Show("Deseja Ir Para Tela de Contatos?", "Nenhum Número Digitado", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialog==DialogResult.Yes)
+                    {
+                        openChildForm(new FrmContato());
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Número digitado Incorreto!", "Formato Incorreto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTelefone.Focus();
+                }
+               
             }
             
         }

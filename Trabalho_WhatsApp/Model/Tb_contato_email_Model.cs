@@ -20,5 +20,12 @@ namespace Trabalho_WhatsApp.Model
             enviado = 0;
             habilitado = 0;
         }
+        public Tb_contato_email_Model(string Telefone)
+        {
+            id = 0;
+            telefone = Telefone;
+            enviado = 0;
+            habilitado = 1;
+        }
     }
 }

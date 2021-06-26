@@ -221,7 +221,108 @@ namespace Trabalho_WhatsApp
         }
         public class Tb_contato_email
         {
+            public static List<Tb_contato_email_Model> RetornoCompleto()
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                List<Tb_contato_email_Model> listaFinal = new List<Tb_contato_email_Model>();
+                string strgComando = "select * from tb_contato_email order by id asc;";
+                MySqlCommand comando = new MySqlCommand(strgComando, conexao);
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(comando);
+                DataTable dtLista = new DataTable();
+                sqlDataAdapter.Fill(dtLista);
+                foreach (DataRow dataRow in dtLista.Rows)
+                {
+                    Tb_contato_email_Model contato_email = new Tb_contato_email_Model()
+                    {
+                        id = int.Parse(dataRow["id"].ToString()),
+                        telefone = dataRow["telefone"].ToString(),
+                        enviado = int.Parse(dataRow["enviado"].ToString()),
+                        habilitado = int.Parse(dataRow["habilitado"].ToString())
 
+                    };
+                    listaFinal.Add(contato_email);
+                }
+                return listaFinal;
+            }
+            public static Tb_contato_email_Model Retorno(string telefoneLocal)
+            {
+                Tb_contato_email_Model tb_contatos_emailFinal = new Tb_contato_email_Model();
+
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                object a = tb_contatos_emailFinal;
+
+                MySqlCommand cmd = new MySqlCommand("select * from tb_contato_email where telefone = @telefone", conexao);
+                cmd.Parameters.AddWithValue("telefone", telefoneLocal);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    if (Convert.ToString(dr["telefone"]).Equals(telefoneLocal))
+                    {
+                        tb_contatos_emailFinal.id = Convert.ToInt32(dr["id"]);
+                        tb_contatos_emailFinal.telefone = Convert.ToString(dr["telefone"]);
+                        tb_contatos_emailFinal.enviado = Convert.ToInt32(dr["enviado"]);
+                        tb_contatos_emailFinal.habilitado = Convert.ToInt32(dr["habilitado"]);
+                        break;
+                    }
+                }
+                dr.Close();
+                return tb_contatos_emailFinal;
+
+            }
+            public static void Inserir(Tb_contato_email_Model objLocal)
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                MySqlCommand comando = conexao.CreateCommand();
+                comando.CommandText = "insert into tb_contato_email (telefone, enviado, habilitado) values (@telefone, @enviado, @habilitado);";
+                comando.Parameters.AddWithValue("telefone", objLocal.telefone);
+                comando.Parameters.AddWithValue("enviado", objLocal.enviado);
+                comando.Parameters.AddWithValue("habilitado", objLocal.habilitado);
+                comando.ExecuteNonQuery();
+            }
+            public static void Atualizar(Tb_contato_email_Model objLocal)
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                MySqlCommand comando = conexao.CreateCommand();
+                comando.CommandText = "update tb_contato_email set telefone = @telefone, enviado = @enviado, habilitado = @habilitado where id = @id;";
+                comando.Parameters.AddWithValue("id", objLocal.id);
+                comando.Parameters.AddWithValue("telefone", objLocal.telefone);
+                comando.Parameters.AddWithValue("enviado", objLocal.enviado);
+                comando.Parameters.AddWithValue("habilitado", objLocal.habilitado);
+                comando.ExecuteNonQuery();
+            }
+            public static void Deletar(Tb_contato_email_Model objLocal)
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                MySqlCommand comando = conexao.CreateCommand();
+                comando.CommandText = "delete from tb_contato_email where id = @id;";
+                comando.Parameters.AddWithValue("id", objLocal.id);
+                comando.ExecuteNonQuery();
+            }
+            public static void Truncate()
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                MySqlCommand comando = conexao.CreateCommand();
+                comando.CommandText = "truncate table tb_contato_email;";
+                comando.ExecuteNonQuery();
+            }
         }
         public class Tb_estado
         {

@@ -271,6 +271,7 @@ namespace Trabalho_WhatsApp.View
         }
         private void btnGrid_Click(object sender, EventArgs e)
         {
+            ListaAparelho = Banco.Tb_aparelho.RetornoCompleto();
             CarregarGrid();
         }
         #endregion

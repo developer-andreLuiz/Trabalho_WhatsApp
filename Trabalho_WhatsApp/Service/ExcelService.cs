@@ -9,11 +9,18 @@ namespace Trabalho_WhatsApp.Service
 {
     class ExcelService
     {
-        public static string Nome
+        public static string Contatos
         {
             get
             {
                 return "Contatos";
+            }
+        }
+        public static string Contatos_Email
+        {
+            get
+            {
+                return "Contatos_Email";
             }
         }
         public static string Path(string table)
@@ -32,6 +39,7 @@ namespace Trabalho_WhatsApp.Service
                 catch { }
             }
         }
+
         private static string Formato(int n)
         {
             string valor = n.ToString();
@@ -48,12 +56,13 @@ namespace Trabalho_WhatsApp.Service
             }
             return retorno;
         }
-        public static bool CreateTable(List<string> List)
+
+        public static bool CreateTableContatos(List<string> List)
         {
             if (List.Count > 0)
             {
                 FolderService.CreateFolderTabelas();
-                Delete(Nome);
+                Delete(Contatos);
                 StringBuilder excel = new StringBuilder();
                 excel.AppendLine("First Name,Mobile Phone");
                 int numero = 0;
@@ -64,7 +73,32 @@ namespace Trabalho_WhatsApp.Service
 
                     excel.AppendLine($"{Formato(numero)},{item}");
                 }
-                File.AppendAllText(Path(Nome), excel.ToString());
+                File.AppendAllText(Path(Contatos), excel.ToString());
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool CreateTableContatosEmail(List<string> List)
+        {
+            if (List.Count > 0)
+            {
+                FolderService.CreateFolderTabelas();
+                Delete(Contatos_Email);
+                StringBuilder excel = new StringBuilder();
+                excel.AppendLine("First Name,Mobile Phone");
+                int numero = 0;
+
+                foreach (var item in List)
+                {
+                    numero++;
+
+                    excel.AppendLine($"{Formato(numero)},{item}");
+                }
+                File.AppendAllText(Path(Contatos_Email), excel.ToString());
                 return true;
             }
             else

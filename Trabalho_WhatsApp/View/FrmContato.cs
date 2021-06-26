@@ -18,11 +18,26 @@ namespace Trabalho_WhatsApp.View
         #region Variaveis
         bool novo = false;
         List<Tb_contato_Model> ListaContato;
-      
+        private Form activeForm = null;
         #endregion
 
         #region Funções
-       
+        //Manager
+        private void openChildForm(Form ChildForm)
+        {
+            if (activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = ChildForm;
+            ChildForm.TopLevel = false;
+            ChildForm.FormBorderStyle = FormBorderStyle.None;
+            ChildForm.Dock = DockStyle.Fill;
+            panelCentral.Controls.Add(ChildForm);
+            panelCentral.Tag = ChildForm;
+            ChildForm.BringToFront();
+            ChildForm.Show();
+        }
         //Interface Layout
         void InterfaceLayoutInicioCancelarGravarDeletar()
         {
@@ -262,7 +277,7 @@ namespace Trabalho_WhatsApp.View
             CarregarComboBox(cbBairroResgistro, cbEstadoRegistro.SelectedValue.ToString(), cbMunicipioRegistro.SelectedValue.ToString());
             cbBairroResgistro.SelectedValue = objLocal.codigo_bairro;
 
-            lblIdRegistro.Text = objLocal.id.ToString();
+            txtIdRegistro.Text = objLocal.id.ToString();
 
             if (objLocal.habilitado==1)
             {
@@ -281,9 +296,9 @@ namespace Trabalho_WhatsApp.View
         {
             bool retorno = true;
 
-            if (lblIdRegistro.Text.Length > 0)
+            if (txtIdRegistro.Text.Length > 0)
             {
-                objLocal.id = int.Parse(lblIdRegistro.Text);
+                objLocal.id = int.Parse(txtIdRegistro.Text);
             }
             else { retorno = false; }
 
@@ -409,7 +424,7 @@ namespace Trabalho_WhatsApp.View
            
             chkInteracaoRegistro.Checked = false;
 
-            lblIdRegistro.Text = "0";
+            txtIdRegistro.Text = "0";
         }
         void CarregarComboBox(ComboBox cb)
         {
@@ -598,6 +613,7 @@ namespace Trabalho_WhatsApp.View
                 }
                 else
                 {
+
                     Banco.Tb_contato.Atualizar(objLocal);
                     ListaContato = Banco.Tb_contato.RetornoCompleto();
                     Exibir(ListaContato.Find(x => x.id == objLocal.id));
@@ -796,7 +812,11 @@ namespace Trabalho_WhatsApp.View
 
                 if (Global.ListaContatoEmailExportar.Count>valorAntes)
                 {
-                    MessageBox.Show("Números Adicionados", "Lista Para Exportar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    DialogResult dialog = MessageBox.Show("Números Adicionados, Deseja ir para Contatos Email ?", "Lista Para Exportar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialog==DialogResult.Yes)
+                    {
+                        openChildForm(new FrmContatoEmail());
+                    }
                 }
                 else
                 {
@@ -808,7 +828,8 @@ namespace Trabalho_WhatsApp.View
             {
                 MessageBox.Show("Nenhuma Linha Selecionada", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            
+            
         }
         private void btnLimparListaParaExportar_Click(object sender, EventArgs e)
         {
@@ -826,12 +847,12 @@ namespace Trabalho_WhatsApp.View
         {
             if (Global.ListaContatoEmailExportar.Count>0)
             {
-                if (ExcelService.CreateTable(Global.ListaContatoEmailExportar) == true)
+                if (ExcelService.CreateTableContatos(Global.ListaContatoEmailExportar) == true)
                 {
-                    DialogResult dialog = MessageBox.Show("Tabela Criada, Deseja Abrir Local  da Tabela ? ", "Concluido", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dialog = MessageBox.Show("Tabela Criada, Deseja Abrir Local  da Tabela? ", "Concluido", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialog == DialogResult.Yes)
                     {
-                        System.Diagnostics.Process.Start("Explorer.exe", string.Format("/select,\"{0}\"", ExcelService.Path(ExcelService.Nome)));
+                        System.Diagnostics.Process.Start("Explorer.exe", string.Format("/select,\"{0}\"", ExcelService.Path(ExcelService.Contatos)));
                     }
 
                 }
