@@ -61,7 +61,7 @@ namespace Trabalho_WhatsApp.View
             this.panelLateral.Controls.Add(this.btnInicio);
             this.panelLateral.Location = new System.Drawing.Point(1, 1);
             this.panelLateral.Name = "panelLateral";
-            this.panelLateral.Size = new System.Drawing.Size(161, 648);
+            this.panelLateral.Size = new System.Drawing.Size(160, 648);
             this.panelLateral.TabIndex = 0;
             this.panelLateral.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelLateral_MouseDown);
             this.panelLateral.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelLateral_MouseMove);
@@ -205,7 +205,7 @@ namespace Trabalho_WhatsApp.View
             this.panelSuperior.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelSuperior.Location = new System.Drawing.Point(163, 1);
             this.panelSuperior.Name = "panelSuperior";
-            this.panelSuperior.Size = new System.Drawing.Size(737, 50);
+            this.panelSuperior.Size = new System.Drawing.Size(736, 50);
             this.panelSuperior.TabIndex = 1;
             this.panelSuperior.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelSuperior_MouseDown);
             this.panelSuperior.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelSuperior_MouseMove);
@@ -251,7 +251,7 @@ namespace Trabalho_WhatsApp.View
             // panelCentral
             // 
             this.panelCentral.BackColor = System.Drawing.Color.White;
-            this.panelCentral.Location = new System.Drawing.Point(163, 52);
+            this.panelCentral.Location = new System.Drawing.Point(162, 54);
             this.panelCentral.Name = "panelCentral";
             this.panelCentral.Size = new System.Drawing.Size(737, 595);
             this.panelCentral.TabIndex = 1;
