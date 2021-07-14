@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Trabalho_WhatsApp.Model;
 using System.Data;
+using System.Windows.Forms;
 
 namespace Trabalho_WhatsApp
 {
@@ -44,6 +45,37 @@ namespace Trabalho_WhatsApp
                     };
                     listaFinal.Add(newTb_aparelho_Model);
                 }
+                conexao.Close();
+                return listaFinal;
+            }
+            public static List<Tb_aparelho_Model> RetornoCompletoHabilitado()
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                List<Tb_aparelho_Model> listaFinal = new List<Tb_aparelho_Model>();
+                string strgComando = "select * from tb_aparelho where habilitado = 1 order by id asc;";
+                MySqlCommand comando = new MySqlCommand(strgComando, conexao);
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(comando);
+                DataTable dtLista = new DataTable();
+                sqlDataAdapter.Fill(dtLista);
+                foreach (DataRow dataRow in dtLista.Rows)
+                {
+                    Tb_aparelho_Model newTb_aparelho_Model = new Tb_aparelho_Model()
+                    {
+                        id = int.Parse(dataRow["id"].ToString()),
+                        versao = dataRow["versao"].ToString(),
+                        whatsapp = dataRow["whatsapp"].ToString(),
+                        business = dataRow["business"].ToString(),
+                        email = dataRow["email"].ToString(),
+                        udid = dataRow["udid"].ToString(),
+                        habilitado = int.Parse(dataRow["habilitado"].ToString())
+
+                    };
+                    listaFinal.Add(newTb_aparelho_Model);
+                }
+                conexao.Close();
                 return listaFinal;
             }
             public static void Inserir(Tb_aparelho_Model objLocal)
@@ -61,6 +93,7 @@ namespace Trabalho_WhatsApp
                 comando.Parameters.AddWithValue("udid", objLocal.udid);
                 comando.Parameters.AddWithValue("habilitado", objLocal.habilitado);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Atualizar(Tb_aparelho_Model objLocal)
             {
@@ -78,6 +111,7 @@ namespace Trabalho_WhatsApp
                 comando.Parameters.AddWithValue("udid", objLocal.udid);
                 comando.Parameters.AddWithValue("habilitado", objLocal.habilitado);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Deletar(Tb_aparelho_Model objLocal)
             {
@@ -89,6 +123,7 @@ namespace Trabalho_WhatsApp
                 comando.CommandText = "delete from tb_aparelho where id = @id;";
                 comando.Parameters.AddWithValue("id", objLocal.id);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Truncate()
             {
@@ -99,6 +134,7 @@ namespace Trabalho_WhatsApp
                 MySqlCommand comando = conexao.CreateCommand();
                 comando.CommandText = "truncate table tb_aparelho;";
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
         }
         public class Tb_contato
@@ -130,18 +166,16 @@ namespace Trabalho_WhatsApp
                     };
                     listaFinal.Add(contato);
                 }
+                conexao.Close();
                 return listaFinal;
             }
             public static Tb_contato_Model Retorno(string telefoneLocal)
             {
-                Tb_contato_Model tb_ContatosFinal = new Tb_contato_Model();
-
                 if (conexao.State == ConnectionState.Closed)
                 {
                     conexao.Open();
                 }
-                object a = tb_ContatosFinal;
-
+                Tb_contato_Model tb_ContatosFinal = new Tb_contato_Model();
                 MySqlCommand cmd = new MySqlCommand("select * from tb_contato where telefone = @telefone", conexao);
                 cmd.Parameters.AddWithValue("telefone", telefoneLocal);
                 MySqlDataReader dr = cmd.ExecuteReader();
@@ -160,8 +194,8 @@ namespace Trabalho_WhatsApp
                     }
                 }
                 dr.Close();
+                conexao.Close();
                 return tb_ContatosFinal;
-
             }
             public static void Inserir(Tb_contato_Model objLocal)
             {
@@ -177,8 +211,8 @@ namespace Trabalho_WhatsApp
                 comando.Parameters.AddWithValue("codigo_bairro", objLocal.codigo_bairro);
                 comando.Parameters.AddWithValue("interacao", objLocal.interacao);
                 comando.Parameters.AddWithValue("habilitado", objLocal.habilitado);
-
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Atualizar(Tb_contato_Model objLocal)
             {
@@ -196,6 +230,24 @@ namespace Trabalho_WhatsApp
                 comando.Parameters.AddWithValue("interacao", objLocal.interacao);
                 comando.Parameters.AddWithValue("habilitado", objLocal.habilitado);
                 comando.ExecuteNonQuery();
+                conexao.Close();
+            }
+            public static void Desabilitar(string Telefone)
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                MySqlCommand comando = conexao.CreateCommand();
+                comando.CommandText = "update tb_contato set habilitado = 0 where telefone = @telefone;";
+                comando.Parameters.AddWithValue("telefone", Telefone);
+                try
+                {
+                    comando.ExecuteNonQuery();
+                }
+                catch { }
+
+                conexao.Close();
             }
             public static void Deletar(Tb_contato_Model objLocal)
             {
@@ -207,6 +259,7 @@ namespace Trabalho_WhatsApp
                 comando.CommandText = "delete from tb_contato where id = @id;";
                 comando.Parameters.AddWithValue("id", objLocal.id);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Truncate()
             {
@@ -217,6 +270,7 @@ namespace Trabalho_WhatsApp
                 MySqlCommand comando = conexao.CreateCommand();
                 comando.CommandText = "truncate table tb_contato;";
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
         }
         public class Tb_contato_email
@@ -245,18 +299,16 @@ namespace Trabalho_WhatsApp
                     };
                     listaFinal.Add(contato_email);
                 }
+                conexao.Close();
                 return listaFinal;
             }
             public static Tb_contato_email_Model Retorno(string telefoneLocal)
             {
-                Tb_contato_email_Model tb_contatos_emailFinal = new Tb_contato_email_Model();
-
                 if (conexao.State == ConnectionState.Closed)
                 {
                     conexao.Open();
                 }
-                object a = tb_contatos_emailFinal;
-
+                Tb_contato_email_Model tb_contatos_emailFinal = new Tb_contato_email_Model();
                 MySqlCommand cmd = new MySqlCommand("select * from tb_contato_email where telefone = @telefone", conexao);
                 cmd.Parameters.AddWithValue("telefone", telefoneLocal);
                 MySqlDataReader dr = cmd.ExecuteReader();
@@ -272,8 +324,8 @@ namespace Trabalho_WhatsApp
                     }
                 }
                 dr.Close();
+                conexao.Close();
                 return tb_contatos_emailFinal;
-
             }
             public static void Inserir(Tb_contato_email_Model objLocal)
             {
@@ -287,6 +339,7 @@ namespace Trabalho_WhatsApp
                 comando.Parameters.AddWithValue("enviado", objLocal.enviado);
                 comando.Parameters.AddWithValue("habilitado", objLocal.habilitado);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Atualizar(Tb_contato_email_Model objLocal)
             {
@@ -301,6 +354,7 @@ namespace Trabalho_WhatsApp
                 comando.Parameters.AddWithValue("enviado", objLocal.enviado);
                 comando.Parameters.AddWithValue("habilitado", objLocal.habilitado);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Deletar(Tb_contato_email_Model objLocal)
             {
@@ -312,6 +366,7 @@ namespace Trabalho_WhatsApp
                 comando.CommandText = "delete from tb_contato_email where id = @id;";
                 comando.Parameters.AddWithValue("id", objLocal.id);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Truncate()
             {
@@ -322,6 +377,7 @@ namespace Trabalho_WhatsApp
                 MySqlCommand comando = conexao.CreateCommand();
                 comando.CommandText = "truncate table tb_contato_email;";
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
         }
         public class Tb_estado
@@ -348,6 +404,7 @@ namespace Trabalho_WhatsApp
                     };
                     listaFinal.Add(estado);
                 }
+                conexao.Close();
                 return listaFinal;
             }
             public static void Inserir(Tb_estado_Model objLocal)
@@ -361,6 +418,7 @@ namespace Trabalho_WhatsApp
                 comando.Parameters.AddWithValue("codigo", objLocal.codigo);
                 comando.Parameters.AddWithValue("nome", objLocal.nome);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Truncate()
             {
@@ -371,6 +429,7 @@ namespace Trabalho_WhatsApp
                 MySqlCommand comando = conexao.CreateCommand();
                 comando.CommandText = "truncate table tb_estado;";
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
         }
         public class Tb_municipio
@@ -398,6 +457,7 @@ namespace Trabalho_WhatsApp
                     };
                     listaFinal.Add(municipio);
                 }
+                conexao.Close();
                 return listaFinal;
             }
             public static void Inserir(Tb_municipio_Model objLocal)
@@ -412,6 +472,7 @@ namespace Trabalho_WhatsApp
                 comando.Parameters.AddWithValue("nome", objLocal.nome);
                 comando.Parameters.AddWithValue("codigo_estado", objLocal.codigo_estado);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Truncate()
             {
@@ -422,6 +483,7 @@ namespace Trabalho_WhatsApp
                 MySqlCommand comando = conexao.CreateCommand();
                 comando.CommandText = "truncate table tb_municipio;";
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
         }
         public class Tb_bairro
@@ -450,6 +512,7 @@ namespace Trabalho_WhatsApp
                     };
                     listaFinal.Add(bairro);
                 }
+                conexao.Close();
                 return listaFinal;
             }
             public static void Inserir(Tb_bairro_Model objLocal)
@@ -465,6 +528,7 @@ namespace Trabalho_WhatsApp
                 comando.Parameters.AddWithValue("codigo_estado", objLocal.codigo_estado);
                 comando.Parameters.AddWithValue("codigo_municipio", objLocal.codigo_municipio);
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
             public static void Truncate()
             {
@@ -475,8 +539,64 @@ namespace Trabalho_WhatsApp
                 MySqlCommand comando = conexao.CreateCommand();
                 comando.CommandText = "truncate table tb_bairro;";
                 comando.ExecuteNonQuery();
+                conexao.Close();
             }
         }
+        public class Tb_mensagem
+        {
+            public static string GetSair()
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                string retorno = string.Empty;
+                string strgComando = "select * from tb_mensagem order by id asc limit 1;;";
+                MySqlCommand comando = new MySqlCommand(strgComando, conexao);
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(comando);
+                DataTable dtLista = new DataTable();
+                sqlDataAdapter.Fill(dtLista);
+                foreach (DataRow dataRow in dtLista.Rows)
+                {
+                    retorno = dataRow["mensagem"].ToString();
+                }
+                conexao.Close();
+                return retorno;
+            }
+            public static string GetInformacao()
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                string retorno = string.Empty;
+                string strgComando = "select * from tb_mensagem order by id desc limit 1;;";
+                MySqlCommand comando = new MySqlCommand(strgComando, conexao);
+                MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter(comando);
+                DataTable dtLista = new DataTable();
+                sqlDataAdapter.Fill(dtLista);
+                foreach (DataRow dataRow in dtLista.Rows)
+                {
+                    retorno = dataRow["mensagem"].ToString();
+                }
+                conexao.Close();
+                return retorno;
+            }
+            public static void Atualizar(string txt ,int id)
+            {
+                if (conexao.State == ConnectionState.Closed)
+                {
+                    conexao.Open();
+                }
+                MySqlCommand comando = conexao.CreateCommand();
+                comando.CommandText = "update tb_mensagem set mensagem = @mensagem where id = @id;";
+                comando.Parameters.AddWithValue("id", id);
+                comando.Parameters.AddWithValue("mensagem", txt);
+                comando.ExecuteNonQuery();
+                conexao.Close();
+            }
+        }
+            
     }
 }
 

@@ -93,3 +93,15 @@ D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.pdb
 D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\System.Data.SQLite.dll
 D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\System.Data.SQLite.xml
 D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\obj\Debug\Trabalho_WhatsApp.csproj.AssemblyReference.cache
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\Appium.Net.dll
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\Castle.Core.dll
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\Newtonsoft.Json.dll
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\SeleniumExtras.PageObjects.dll
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\WebDriver.dll
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\WebDriver.Support.dll
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\Appium.Net.xml
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\Castle.Core.xml
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\Newtonsoft.Json.pdb
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\Newtonsoft.Json.xml
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\WebDriver.xml
+D:\Git\Trabalho_WhatsApp\Trabalho_WhatsApp\bin\Debug\WebDriver.Support.xml

@@ -847,8 +847,21 @@ namespace Trabalho_WhatsApp.View
         {
             if (Global.ListaContatoEmailExportar.Count>0)
             {
+                foreach (string item in Global.ListaContatoEmailExportar)
+                {
+                    Tb_contato_Model contato = ListaContato.Find(x => x.telefone.Equals(item));
+                    if (contato.interacao==0)
+                    {
+                        contato.interacao = 1;
+                        Banco.Tb_contato.Atualizar(contato);
+                    }
+                  
+                }
+                AtualizarGrid();
                 if (ExcelService.CreateTableContatos(Global.ListaContatoEmailExportar) == true)
                 {
+                    Global.ListaContatoEmailExportar = new List<string>();
+                    lblListaParaExportar.Text = Global.ListaContatoEmailExportar.Count.ToString();
                     DialogResult dialog = MessageBox.Show("Tabela Criada, Deseja Abrir Local  da Tabela? ", "Concluido", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialog == DialogResult.Yes)
                     {

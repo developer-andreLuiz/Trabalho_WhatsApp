@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Trabalho_WhatsApp.Service;
 
 namespace Trabalho_WhatsApp.View
 {
@@ -117,6 +120,23 @@ namespace Trabalho_WhatsApp.View
                 btnBancoDeDados.BackColor = Color.FromArgb(r1, g1, b1);
                 btnExportarContatos.BackColor = Color.FromArgb(r0, g0, b0);
                 btnAjuda.BackColor = Color.FromArgb(r0, g0, b0);
+            }
+        }
+        void EncerrarThread()
+        {
+            foreach (var item in Global.Lista_threads)
+            {
+                if (item.Name.Equals("Verificacao"))
+                {
+                    try
+                    {
+                        item.Abort();
+                    }
+                    catch { }
+                    Global.Lista_threads.Remove(item);
+                  
+                    break;
+                }
             }
         }
         #endregion
@@ -257,6 +277,12 @@ namespace Trabalho_WhatsApp.View
             }
             catch { }
         }
+
+        private void FrmManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            EncerrarThread();
+        }
+
         private void panelLateral_MouseDown(object sender, MouseEventArgs e)
         {
             try
