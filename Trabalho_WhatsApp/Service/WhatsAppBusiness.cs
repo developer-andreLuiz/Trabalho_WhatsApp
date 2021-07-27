@@ -765,7 +765,7 @@ namespace Trabalho_WhatsApp.Service
         {
             try
             {
-                Thread.Sleep(TimeSpan.FromMilliseconds(500));
+                Thread.Sleep(TimeSpan.FromSeconds(1));
                 var btn = driver.FindElement(By.XPath("//android.widget.TextView[@resource-id='com.whatsapp.w4b:id/menuitem_conversations_delete']"));
                 if (btn != null)
                 {
